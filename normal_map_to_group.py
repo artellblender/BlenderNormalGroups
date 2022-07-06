@@ -18,7 +18,7 @@
 
 bl_info = {
     "name": "Normal Map nodes to Custom",
-    "author": "Spooky spooky Ghostman, Kamikaze, crute",
+    "author": "Spooky spooky Ghostman, Kamikaze, crute, artell",
     "description": "Replace Normal Nodes for better EEVEE Viewport-Performance",
     "blender": (2, 80, 0),
     "version": (0, 1, 0),
@@ -140,7 +140,7 @@ class MUT_PT_normal_map_nodes(bpy.types.Panel):
 
 
 def default_custom_nodes():
-    use_new_nodes = (bpy.app.version >= (2, 81))
+    use_new_nodes = bpy.app.version >= (2, 81)
 
     group = bpy.data.node_groups.new('Normal Map Optimized', 'ShaderNodeTree')
 
@@ -176,7 +176,7 @@ def default_custom_nodes():
     node.inputs[0].default_value = (0.5, 0.5, 0.5)  # Vector
     node.inputs[1].default_value = (0.5, 0.5, 0.5)  # Vector
     if use_new_nodes:
-        node.inputs[2].default_value = 1.0  # Scale
+        node.inputs[2].default_value = (1.0, 1.0, 1.0)  # Scale
     node = nodes.new('ShaderNodeVectorMath')
     node.name = 'Vector Math.001'
     node.label = ''
@@ -188,7 +188,7 @@ def default_custom_nodes():
     node.inputs[0].default_value = (0.5, 0.5, 0.5)  # Vector
     node.inputs[1].default_value = (0.5, 0.5, 0.5)  # Vector
     if use_new_nodes:
-        node.inputs[2].default_value = 1.0  # Scale
+        node.inputs[2].default_value = (1.0, 1.0, 1.0)  # Scale
     node = nodes.new('ShaderNodeVectorMath')
     node.name = 'Vector Math.002'
     node.label = ''
@@ -199,7 +199,7 @@ def default_custom_nodes():
     node.inputs[0].default_value = (0.5, 0.5, 0.5)  # Vector
     node.inputs[1].default_value = (0.5, 0.5, 0.5)  # Vector
     if use_new_nodes:
-        node.inputs[2].default_value = 1.0  # Scale
+        node.inputs[2].default_value = (1.0, 1.0, 1.0)  # Scale
     node.operation = 'DOT_PRODUCT'
     node = nodes.new('ShaderNodeCombineXYZ')
     node.name = 'Combine XYZ'
@@ -307,7 +307,7 @@ def default_custom_nodes():
     node.inputs[0].default_value = (0.5, 0.5, 0.5)  # Vector
     node.inputs[1].default_value = (0.5, 0.5, 0.5)  # Vector
     if use_new_nodes:
-        node.inputs[2].default_value = 1.0  # Scale
+        node.inputs[2].default_value = (1.0, 1.0, 1.0)  # Scale
     # node.inputs.remove(node.inputs[1])
     node = nodes.new('ShaderNodeVectorMath')
     node.name = 'Vector Math.004'
@@ -319,7 +319,7 @@ def default_custom_nodes():
     node.inputs[0].default_value = (0.5, 0.5, 0.5)  # Vector
     node.inputs[1].default_value = (0.5, 0.5, 0.5)  # Vector
     if use_new_nodes:
-        node.inputs[2].default_value = 1.0  # Scale
+        node.inputs[2].default_value = (1.0, 1.0, 1.0)  # Scale
 
     frame = nodes.new('NodeFrame')
     frame.name = 'Transpose Matrix'
