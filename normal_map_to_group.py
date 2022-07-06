@@ -18,7 +18,7 @@
 
 bl_info = {
     "name": "Normal Map nodes to Custom",
-    "author": "Spooky spooky Ghostman, Kamikaze, crute, artell",
+    "author": "Spooky spooky Ghostman, Kamikaze, crute",
     "description": "Replace Normal Nodes for better EEVEE Viewport-Performance",
     "blender": (2, 80, 0),
     "version": (0, 1, 0),
@@ -140,7 +140,7 @@ class MUT_PT_normal_map_nodes(bpy.types.Panel):
 
 
 def default_custom_nodes():
-    use_new_nodes = bpy.app.version >= (2, 81)
+    use_new_nodes = bpy.app.version >= (2, 81) and bpy.app.version < (3, 2, 0)
 
     group = bpy.data.node_groups.new('Normal Map Optimized', 'ShaderNodeTree')
 
@@ -256,7 +256,7 @@ def default_custom_nodes():
     node.inputs[1].default_value = 1000.0  # Distance
     node.inputs[2].default_value = 1.0  # Height
     if use_new_nodes:
-        node.inputs[3].default_value = 1.0  # Height_dx
+        node.inputs[3].default_value = 1.0 # Height_dx
         node.inputs[4].default_value = 1.0  # Height_dy
         node.inputs[5].default_value = (0.0, 0.0, 0.0)  # Normal
     else:
